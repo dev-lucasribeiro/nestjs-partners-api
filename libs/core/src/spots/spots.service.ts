@@ -31,10 +31,7 @@ export class SpotsService {
     });
 
     if (spot) {
-      throw new HttpException(
-        'Spot already exists',
-        HttpStatus.UNPROCESSABLE_ENTITY,
-      );
+      throw new HttpException('Spot already exists', HttpStatus.BAD_REQUEST);
     }
 
     if (!createSpotDto.name) {
