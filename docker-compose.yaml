@@ -12,7 +12,7 @@ services:
     image: mysql:8.0.30-debian
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: nest
+      MYSQL_DATABASE: partner1
     ports:
       - 3306:3306
     #volumes:
