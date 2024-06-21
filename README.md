@@ -6,7 +6,7 @@ Repositório da API feita com Nest.js (Reserva de Ingressos)
 
 ## Rodar a aplicação
 
-Dentro da pasta `nest` execute o comando abaixo para rodar os containers `Docker`:
+Dentro da pasta do projeto execute o comando abaixo para rodar os containers `Docker`:
 ```
 docker compose up
 ```
