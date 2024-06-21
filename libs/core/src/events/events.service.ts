@@ -168,6 +168,17 @@ export class EventsService {
       );
     }
 
+    const reservedSpots = spots.filter(
+      (spot) => spot.status === SpotStatus.reserved,
+    );
+    if (reservedSpots.length > 0) {
+      const reservedSpotsName = reservedSpots.map((spot) => spot.name);
+      throw new HttpException(
+        `Spots already reserved: ${reservedSpotsName.join(', ')}`,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
     try {
       const tickets = await this.prismaService.$transaction(
         async (prisma) => {
