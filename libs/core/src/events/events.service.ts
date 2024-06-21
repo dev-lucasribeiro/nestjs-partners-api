@@ -162,7 +162,10 @@ export class EventsService {
       const notFoundSpotsName = dto.spots.filter(
         (spotName) => !foundSpotsName.includes(spotName),
       );
-      throw new Error(`Spots ${notFoundSpotsName.join(', ')} not found`);
+      throw new HttpException(
+        `Spots not exits: ${notFoundSpotsName.join(', ')}`,
+        HttpStatus.NOT_FOUND,
+      );
     }
 
     try {
