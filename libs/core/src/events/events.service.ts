@@ -128,6 +128,27 @@ export class EventsService {
   }
 
   async reserveSpot(dto: ReserveSpotDto & { eventId: string }) {
+    if (!Array.isArray(dto.spots)) {
+      throw new HttpException(
+        'Spots must be an array',
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
+
+    if (dto.spots.some((spot) => typeof spot !== 'string')) {
+      throw new HttpException(
+        'All spots must be strings',
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
+
+    if (!(dto.ticket_kind == 'full' || dto.ticket_kind == 'half')) {
+      throw new HttpException(
+        'Ticket kind must be full or half',
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
+
     const spots = await this.prismaService.spot.findMany({
       where: {
         eventId: dto.eventId,

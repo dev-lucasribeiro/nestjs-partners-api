@@ -42,7 +42,7 @@ POST http://localhost:3000/events/{{eventId}}/spots
 Content-Type: application/json
 
 {
-  "name": "AA3"
+  "name": "A6"
 }
 
 ###
@@ -51,10 +51,10 @@ Content-Type: application/json
 ###
 POST http://localhost:3000/events/{{eventId}}/reserve
 Content-Type: application/json
-X-Api-Token: 1234
+X-Api-Token: 123
 
 {
   "spots": ["{{ spotName }}"],
-  "ticket_kind": "full",
+  "ticket_kind": "half",
   "email": "test@test.com"
 }
