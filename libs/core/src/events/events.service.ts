@@ -174,7 +174,7 @@ export class EventsService {
     if (reservedSpots.length > 0) {
       const reservedSpotsName = reservedSpots.map((spot) => spot.name);
       throw new HttpException(
-        `Spots already reserved: ${reservedSpotsName.join(', ')}`,
+        `Spots ${reservedSpotsName.join(', ')} is not available for reservation`,
         HttpStatus.BAD_REQUEST,
       );
     }
@@ -227,7 +227,7 @@ export class EventsService {
             throw new Error('Some spots are already reserved');
         }
       }
-      throw e;
+      throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
     }
   }
 }
