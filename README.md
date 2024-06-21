@@ -23,14 +23,8 @@ npm install
 // executar a migração do primeiro parceiro:
 npm run migrate:partner1
 
-// executar a migração do segundo parceiro:
-npm run migrate:partner2
-
 // Executar o partner1 na porta 3000
 npm run start:dev
-
-// Executar o partner2 na porta 3001
-npm run start:dev partner2
 
 ```
 
